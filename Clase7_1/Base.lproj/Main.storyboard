@@ -1,24 +1,154 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fiz-oa-JfG">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Bienvenida-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Bienvenida" id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="Clase7_1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome" translatesAutoresizingMaskIntoConstraints="NO" id="Aho-TY-HuD">
+                                <rect key="frame" x="77" y="179" width="239" height="210"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="210" id="Pfe-qT-J5p"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienvenid@" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HE-Fc-nnx">
+                                <rect key="frame" x="77" y="419" width="239" height="30.666666666666686"/>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cjp-9R-mwC">
+                                <rect key="frame" x="77" y="497.66666666666674" width="239" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Consultar">
+                                    <backgroundConfiguration key="background" cornerRadius="12">
+                                        <color key="backgroundColor" name="AccentColor"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="consultButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="hfZ-nV-uIV"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Aho-TY-HuD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="77" id="DXe-Zo-tDK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Cjp-9R-mwC" secondAttribute="trailing" constant="77" id="DfN-P2-Ume"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Aho-TY-HuD" secondAttribute="trailing" constant="77" id="Drk-Lf-gCE"/>
+                            <constraint firstItem="Aho-TY-HuD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="76" id="EMy-J2-mfR"/>
+                            <constraint firstItem="2HE-Fc-nnx" firstAttribute="top" secondItem="Aho-TY-HuD" secondAttribute="bottom" constant="30" id="Py1-mR-dKO"/>
+                            <constraint firstItem="2HE-Fc-nnx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="77" id="Zch-no-yu0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2HE-Fc-nnx" secondAttribute="trailing" constant="77" id="l8h-1v-STQ"/>
+                            <constraint firstItem="Cjp-9R-mwC" firstAttribute="top" secondItem="2HE-Fc-nnx" secondAttribute="bottom" constant="48" id="vAF-hh-xx9"/>
+                            <constraint firstItem="Cjp-9R-mwC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="77" id="wSx-qs-HXu"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Bienvenida" id="ili-27-RkT"/>
+                    <connections>
+                        <segue destination="86d-sW-TiK" kind="show" identifier="goToStudent" id="Tbj-Dv-HZn"/>
+                        <segue destination="TxE-W5-68m" kind="show" identifier="goToTeacher" id="snz-fJ-mMF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="931" y="-23"/>
+        </scene>
+        <!--Estudiante-->
+        <scene sceneID="ENp-w6-9vJ">
+            <objects>
+                <viewController title="Estudiante" id="86d-sW-TiK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="45H-qV-SfB">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienvenido Estudiante" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3C-ll-HDv">
+                                <rect key="frame" x="71.666666666666671" y="412.33333333333331" width="249.66666666666663" height="27.666666666666686"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8Uv-7j-pQd"/>
+                        <color key="backgroundColor" red="0.22815407916998406" green="1" blue="0.95777922223328027" alpha="0.92656143851902173" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="O3C-ll-HDv" firstAttribute="centerX" secondItem="45H-qV-SfB" secondAttribute="centerX" id="E6d-yF-rBr"/>
+                            <constraint firstItem="O3C-ll-HDv" firstAttribute="centerY" secondItem="45H-qV-SfB" secondAttribute="centerY" id="i1q-E6-3D5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Estudiante" id="FbX-TV-y6q"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sd9-F1-svv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2326" y="-69"/>
+        </scene>
+        <!--Profesor-->
+        <scene sceneID="kLu-3t-iUf">
+            <objects>
+                <viewController title="Profesor" id="TxE-W5-68m" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jfr-rV-hoa">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bienvenido Profesor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYb-bM-Jc0">
+                                <rect key="frame" x="84.333333333333329" y="412.33333333333331" width="224.66666666666669" height="27.666666666666686"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yxs-Rx-cqW"/>
+                        <color key="backgroundColor" red="0.20392156862745098" green="0.96238110988822267" blue="0.34901960784313724" alpha="0.98940187063276397" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hYb-bM-Jc0" firstAttribute="centerX" secondItem="jfr-rV-hoa" secondAttribute="centerX" id="FRp-m3-1ko"/>
+                            <constraint firstItem="hYb-bM-Jc0" firstAttribute="centerY" secondItem="jfr-rV-hoa" secondAttribute="centerY" id="tAw-FX-pXG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profesor" id="GoK-mi-aqg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Akb-dj-AFC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1673" y="331"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iNw-To-RI3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fiz-oa-JfG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rKd-04-WcE">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Cd1-Xi-SGH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hPO-1r-c9n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="welcome" width="600" height="600"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
