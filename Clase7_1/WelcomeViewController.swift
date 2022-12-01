@@ -13,12 +13,36 @@ class WelcomeViewController: UIViewController {
         static let error = "Error"
         static let errorMessage = "No existe el documento"
         static let cancel = "Cancelar"
+        static let forward = "Continuar"
+        static let documento = "Documento"
+        static let suDocumento = "Su documento"
+        static let goToStudent = "goToStudent"
+        static let goToTeacher = "goToTeacher"
     }
+    
+    let documentStudents = ["1234","6789","9012"]
+    let documentTeachers = ["7123","7456","7000"]
 
+    var documentNumber = String()
     
     @IBAction func consultButtonPressed() {
-        // Disparar alerta
-        executeErrorAlert()
+        executeSearchAlert()
+    }
+    
+    private func executeSearchAlert(){
+        let searchAlert = UIAlertController(title: Const.documento, message: "", preferredStyle: .alert)
+        let continueAction = UIAlertAction(title: Const.forward, style: .default) { action in
+            if let textFields = searchAlert.textFields{
+                self.documentNumber = textFields[0].text!
+            }
+            self.validateDocument()
+        }
+        searchAlert.addAction(continueAction)
+        searchAlert.addTextField { documentTextField in
+            documentTextField.placeholder = Const.suDocumento
+            
+        }
+        present(searchAlert, animated: true)
     }
     
     private func executeErrorAlert(){
@@ -26,6 +50,24 @@ class WelcomeViewController: UIViewController {
         let cancelAction = UIAlertAction(title: Const.cancel, style: .cancel)
         errorAlert.addAction(cancelAction)
         present(errorAlert, animated: true)
+    }
+    
+    private func validateDocument(){
+        if documentStudents.contains(documentNumber){
+            executeTransition(destination: Const.goToStudent)
+        }
+        
+        if documentTeachers.contains(documentNumber){
+            executeTransition(destination: Const.goToTeacher)
+        }
+        
+        if !documentStudents.contains(documentNumber) && !documentTeachers.contains(documentNumber) {
+            executeErrorAlert()
+        }
+    }
+    
+    private func executeTransition(destination: String){
+        performSegue(withIdentifier: destination, sender: self)
     }
     
 }
