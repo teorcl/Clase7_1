@@ -20,29 +20,46 @@ class WelcomeViewController: UIViewController {
         static let goToTeacher = "goToTeacher"
     }
     
+    var searchAlert: UIAlertController?
+    
     let documentStudents = ["1234","6789","9012"]
     let documentTeachers = ["7123","7456","7000"]
-
+    
     var documentNumber = String()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        createAlert()
+    }
+    
+    func createAlert(){
+        let searchAlert = UIAlertController(title: Const.documento, message: "", preferredStyle: .alert)
+        let continueAction = UIAlertAction(title: Const.forward, style: .default) { [weak self] action in
+            guard let self else {return}
+            if let textFields = searchAlert.textFields{
+                self.documentNumber = textFields[0].text!
+            }
+            self.validateDocument()
+        }
+
+        searchAlert.addAction(continueAction)
+        searchAlert.addTextField { documentTextField in
+            documentTextField.placeholder = Const.suDocumento
+            
+        }
+        self.searchAlert = searchAlert
+    }
+    
     
     @IBAction func consultButtonPressed() {
         executeSearchAlert()
     }
     
     private func executeSearchAlert(){
-        let searchAlert = UIAlertController(title: Const.documento, message: "", preferredStyle: .alert)
-        let continueAction = UIAlertAction(title: Const.forward, style: .default) { action in
-            if let textFields = searchAlert.textFields{
-                self.documentNumber = textFields[0].text!
-            }
-            self.validateDocument()
+        if let searchAlert = searchAlert{
+            present(searchAlert, animated: true)
         }
-        searchAlert.addAction(continueAction)
-        searchAlert.addTextField { documentTextField in
-            documentTextField.placeholder = Const.suDocumento
-            
-        }
-        present(searchAlert, animated: true)
+        
     }
     
     private func executeErrorAlert(){
